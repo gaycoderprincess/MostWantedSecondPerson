@@ -64,8 +64,8 @@ BOOL WINAPI DllMain(HINSTANCE, DWORD fdwReason, LPVOID) {
 				return TRUE;
 			}
 
-			NyaHooks::PlaceCameraMoverHook();
-			NyaHooks::aCameraMoverFuncs.push_back(OnCameraTick);
+			NyaHooks::CameraMoverHook::Init();
+			NyaHooks::CameraMoverHook::aFunctions.push_back(OnCameraTick);
 
 			NyaHookLib::PatchRelative(NyaHookLib::CALL, 0x439BBD, &TrafficDensityHooked);
 
